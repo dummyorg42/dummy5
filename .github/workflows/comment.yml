@@ -1,0 +1,14 @@
+name: PR Commented
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  pr-commented:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.comment.body == 'update' && github.event.issue.pull_request }}
+    steps:
+      - run: echo "PR commented"
+        
